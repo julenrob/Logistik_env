@@ -1,0 +1,32 @@
+{% extends 'principal/base.html' %}
+{% block title %} Listar Transportistas {% endblock %}
+
+{% block content %}
+<table class="tabla_trasportistas" id="table">
+    <thead>
+        <tr>
+            {% for field in column_names %}
+                <th scope="col">{{ field }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in row_values %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.nombre }}</td>
+                <td>{{ row.direccion }}</td>
+                <td>{{ row.provincia }}</td>
+                <td>{{ row.poblacion }}</td>
+                <td>{{ row.cp }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script type="application/javascript">
+    $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+</script>
+{% endblock %}

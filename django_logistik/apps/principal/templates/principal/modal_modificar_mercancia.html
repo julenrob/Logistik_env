@@ -1,0 +1,50 @@
+{% extends 'principal/base.html' %}
+{% block title %} Asignar albarán a una Ruta {% endblock %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+  
+<script>
+  type="text/javascript">
+    $(window).on('load', function() {
+        $('#exampleModal').modal('show');
+    });
+
+
+
+</script>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Selecciona la mercancia a asignar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <select id="dropdownMercancias" name="mercancia" class="form-control">
+            {% for mercancia in mercancias %}
+                     <option value="{{ mercancia.id }}">{{ mercancia.id }}, {{ mercancia.descripcion }}</option>
+            {% endfor %}
+                  </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="btnSubmit">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $('#btnSubmit').click(function(){
+      var selected = document.getElementById('dropdownMercancias').value;
+      console.log(selected);
+  // $('#form1').submit();
+  location.href = selected;
+});
+  </script>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'principal/base.html' %}
+{% block title %} Listar Camiones {% endblock %}
+
+{% block content %}
+<table class="tabla_camiones" id="table">
+    <thead>
+        <tr>
+            {% for field in column_names %}
+                <th scope="col">{{ field }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in row_values %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.marca }}</td>
+                <td>{{ row.modelo }}</td>
+                <td>{{ row.tara }}</td>
+                <td>{{ row.mma }}</td>
+                <td>{{ row.pesomercanciamax }}</td>
+                <td>{{ row.alto }}</td>
+                <td>{{ row.ancho }}</td>
+                <td>{{ row.largo }}</td>
+                <td>{{ row.volumenmercanciamax }}</td>
+                <td>{{ row.litrosdeposito }}</td>
+                <td>{{ row.matricula }}</td>
+                <td>{{ row.kilometros }}</td>
+                <td>{{ row.transportista }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script type="application/javascript">
+    $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+</script>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'principal/base.html' %}
+{% block title %} Listar Albaranes {% endblock %}
+
+{% block content %}
+<table class="tabla_albaranes" id="table">
+    <thead>
+        <tr>
+            {% for field in column_names %}
+                <th scope="col">{{ field }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in row_values %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.fechaentrega }}</td>
+                <td>{{ row.horamin }}</td>
+                <td>{{ row.horamax }}</td>
+                <td>{{ row.cliente_dni }}</td>
+                <td>{{ row.estado }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script type="application/javascript">
+    $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+</script>
+{% endblock %}

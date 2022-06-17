@@ -1,0 +1,34 @@
+{% extends 'principal/base.html' %}
+{% block title %} Listar Conductores {% endblock %}
+
+{% block content %}
+<table class="tabla_conductores" id="table">
+    <thead>
+        <tr>
+            {% for field in column_names %}
+                <th scope="col">{{ field }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in row_values %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.nombre }}</td>
+                <td>{{ row.apellido1 }}</td>
+                <td>{{ row.apellido2 }}</td>
+                <td>{{ row.email }}</td>
+                <td>{{ row.password }}</td>
+                <td>{{ row.telefono }}</td>
+                <td>{{ row.uid_firebase }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script type="application/javascript">
+    $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+</script>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'principal/base.html' %}
+{% block title %} Listar Rutas de Reparto {% endblock %}
+
+{% block content %}
+<table class="tabla_rutas" id="table">
+    <thead>
+        <tr>
+            {% for field in column_names %}
+                <th scope="col">{{ field }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in row_values %}
+            <tr>
+                <td>{{ row.transportista }}</td>
+                <td>{{ row.camion }}</td>
+                <td>{{ row.albaran }}</td>
+                <td>{{ row.conductor }}</td>
+                <td>{{ row.fecharuta }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script type="application/javascript">
+    $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+</script>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'principal/base.html' %}
+{% block title %} Listar Clientes {% endblock %}
+
+{% block content %}
+<table class="tabla_clientes" id="table">
+    <thead>
+        <tr>
+            {% for field in column_names %}
+                <th scope="col">{{ field }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in row_values %}
+            <tr>
+                <td>{{ row.dni }}</td>
+                <td>{{ row.nombre }}</td>
+                <td>{{ row.apellido1 }}</td>
+                <td>{{ row.apellido2 }}</td>
+                <td>{{ row.direccion }}</td>
+                <td>{{ row.provincia }}</td>
+                <td>{{ row.poblacion }}</td>
+                <td>{{ row.cp }}</td>
+                <td>{{ row.email }}</td>
+                <td>{{ row.movil }}</td>
+                <td>{{ row.lat }}</td>
+                <td>{{ row.lon }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script type="application/javascript">
+    $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+</script>
+{% endblock %}

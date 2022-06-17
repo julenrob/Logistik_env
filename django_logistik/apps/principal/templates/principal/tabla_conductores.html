@@ -1,0 +1,31 @@
+{% block tabla_conductores %}
+
+<table class="tabla_conductores" id="table">
+    <thead>
+        <tr>
+            {% for field in column_names %}
+                <th scope="col">{{ field }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in row_values %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.nombre }}</td>
+                <td>{{ row.direccion }}</td>
+                <td>{{ row.provincia }}</td>
+                <td>{{ row.poblacion }}</td>
+                <td>{{ row.cp }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script type="application/javascript">
+    $(document).ready( function () {
+        $('#tabla_conductores').DataTable();
+    } );
+</script>
+
+{% endblock %}

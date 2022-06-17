@@ -1,0 +1,28 @@
+{% extends 'principal/base.html' %}
+{% block title %}  Crear paradas en la ruta de reparto {% endblock %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<br>
+<br>
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <form action="" class="" method="post">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" id="btnCrear" class="btn btn-primary">Crear</button>
+                        </div>
+                    </form>
+                    {{mensaje}}
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
+
+
